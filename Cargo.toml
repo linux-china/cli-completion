@@ -1,10 +1,16 @@
 [package]
 name = "cli-completion"
 version = "0.1.0"
-license = "MIT"
-description = "cli completion generator for bash, zsh, fish"
-authors = ["linux_china <libing.chen@gmail.com>"]
 edition = "2018"
+description = "cli completion for bash, zsh, fish and powershell."
+authors = ["linux_china <libing.chen@gmail.com>"]
+keywords = ["cli", "completion"]
+categories = ["command-line-utilities"]
+documentation = "https://github.com/linux-china/cli-completion"
+readme = "README.md"
+homepage = "https://github.com/linux-china/cli-completion"
+repository = "https://github.com/linux-china/cli-completion"
+license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
