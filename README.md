@@ -3,6 +3,8 @@ CLI completion
 
 CLI completion for bash, zsh, fish and powershell.
 
+![CLI Completion](https://github.com/linux-china/cli-completion/blob/master/structure.png?raw=true)
+
 # How to install?
 
 ```
