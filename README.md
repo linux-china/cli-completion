@@ -45,7 +45,7 @@ Don't forget to enable xxx plugin in ~/.zshrc file！
 ### powershell completion
 
 ```
-$ cli-completion --powershll xxx.yaml > xxx-completion.ps
+$ cli-completion --powershell xxx.yaml > xxx-completion.ps
 ```
 
 # References
