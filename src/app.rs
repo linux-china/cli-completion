@@ -8,7 +8,7 @@ pub fn build_app() -> App<'static> {
     // init Clap
     App::new(COMMAND)
         .version(VERSION)
-        .author("linux_china https://twitter.com/linux_china")
+        .author("linux_china, https://twitter.com/linux_china")
         .about("CLI completion for bash, zsh, fish and powershell.")
         .arg(
             Arg::new("zsh")
