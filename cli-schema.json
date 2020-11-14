@@ -46,20 +46,76 @@
     "Arg": {
       "type": "object",
       "properties": {
-        "short": {
-          "type": "string"
+        "about": {
+          "type": "string",
+          "description": "short help text of the argument"
+        },
+        "allow_hyphen_values": {
+          "type": "boolean",
+          "description": "Allows values which start with a leading hyphen (-)"
+        },
+        "default_value": {
+          "type": "string",
+          "description": "Specifies the value of the argument when not specified at runtime"
+        },
+        "hidden": {
+          "type": "boolean",
+          "description": "Hides an argument from help message output. NOTE: This does not hide the argument from usage."
+        },
+        "index": {
+          "type": "number",
+          "description": "Specifies the index of a positional argument starting at 1."
         },
         "long": {
-          "type": "string"
+          "type": "string",
+          "description": "Sets the long version of the argument without the preceding --"
         },
-        "takes_value": {
-          "type": "boolean"
+        "multiple": {
+          "type": "boolean",
+          "description": "Specifies that the argument may have an unknown number of multiple values. Without any other settings, this argument may appear only once."
+        },
+        "possible_values": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "required": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Specifies that the argument is required by default"
         },
-        "about": {
-          "type": "string"
+        "short": {
+          "type": "string",
+          "description": "Sets the short version of the argument without the preceding -"
+        },
+        "takes_value": {
+          "type": "boolean",
+          "description": "Specifies that the argument takes a value at run time"
+        },
+        "use_delimiter": {
+          "type": "boolean",
+          "description": "Specifies that an argument should allow grouping of multiple values via a delimiter, default is comma ,"
+        },
+        "value_hint": {
+          "type": "string",
+          "description": "Sets a hint about the type of the value for shell completions",
+          "enum": [
+            "AnyPath",
+            "FilePath",
+            "DirPath",
+            "ExecutablePath",
+            "CommandName",
+            "CommandString",
+            "CommandWithArguments",
+            "Username",
+            "Hostname",
+            "Url",
+            "EmailAddress"
+          ]
+        },
+        "value_name": {
+          "type": "string",
+          "description": "Specifies the name for value of option or positional arguments inside of help documentation"
         }
       },
       "required": [
