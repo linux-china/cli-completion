@@ -50,3 +50,4 @@ $ cli-completion --powershll xxx.yaml > xxx-completion.ps
 # References
 
 * clap-rs: https://github.com/clap-rs/clap
+* cli-completion crate: https://crates.io/crates/cli-completion
