@@ -13,7 +13,7 @@
       "description": "Sets a string of author(s) that will be displayed to the user when they request the help message"
     },
     "about": {
-      "description": "description for CLI",
+      "description": "Sets a string describing what the program does",
       "type": "string"
     },
     "version": {
