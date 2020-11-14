@@ -1,5 +1,5 @@
 //! clap App for command cli
-use clap::{App, Arg};
+use clap::{App, Arg, ValueHint};
 
 const COMMAND: &str = "cli-completion";
 const VERSION: &str = "0.1.0";
@@ -43,6 +43,7 @@ pub fn build_app() -> App<'static> {
                 .takes_value(true)
                 .required(true)
                 .value_name("FILE")
+                .value_hint(ValueHint::FilePath)
                 .about("CLI clap-rs yaml file"),
         )
 }
