@@ -10,7 +10,7 @@ use yaml_rust::{Yaml, YamlLoader};
 
 fn main() {
     let app = build_app();
-    let matches = app.get_matches();
+    let matches = app.clone().get_matches();
     if matches.is_present("yaml") {
         let yaml_file = matches.value_of("yaml").unwrap();
         let yaml_text = fs::read_to_string(yaml_file).unwrap();
@@ -21,10 +21,6 @@ fn main() {
         } else {
             println!("😂 Incorrect yaml file!");
         }
-    } else {
-        println!(
-            "😂 Please use `cli-completion --zsh multipass.yaml` to generate shell completion!"
-        );
     }
 }
 
