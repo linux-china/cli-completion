@@ -6,11 +6,13 @@ args:
       short: h
       long: help
       takes_value: false
+      global: true
       about: Display this help
   - verbose:
       short: v
       long: verbose
       takes_value: false
+      global: true
       about: Increase logging verbosity
 subcommands:
   - delete:
@@ -84,7 +86,7 @@ subcommands:
             long: format
             takes_value: true
             required: false
-            about: "Output info in the requested format. Valid formats are: table (default), json, csv and yaml"
+            about: "Output info in the requested format. \nValid formats are: table (default), json, csv and yaml"
         - name:
             takes_value: true
             required: false
@@ -119,6 +121,7 @@ subcommands:
         - image:
             takes_value: true
             required: false
+            possible_values: [ "16.04","18.04","20.04","20.10" ]
             about: "Optional image to launch. If omitted, then the default Ubuntu LTS will be used."
   - list:
       about: List all available instances
@@ -135,6 +138,8 @@ subcommands:
             takes_value: true
             required: true
             index: 1
+            value_name: DIR
+            value_hint: DirPath
             about: Path of the local directory to mount
         - target:
             takes_value: true
