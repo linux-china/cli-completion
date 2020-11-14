@@ -1,0 +1,91 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CLI JSON Schema",
+  "description": "CLI JSON Schema for clap-rs YAML",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "CLI name",
+      "type": "string"
+    },
+    "version": {
+      "description": "CLI version",
+      "type": "string"
+    },
+    "about": {
+      "description": "description for CLI",
+      "type": "string"
+    },
+    "args": {
+      "description": "arguments for CLI",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/definitions/Arg"
+        }
+      }
+    },
+    "subcommands": {
+      "description": "sub commands for CLI",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/definitions/Command"
+        }
+      }
+    }
+  },
+  "required": [
+    "name",
+    "version",
+    "about"
+  ],
+  "definitions": {
+    "Arg": {
+      "type": "object",
+      "properties": {
+        "short": {
+          "type": "string"
+        },
+        "long": {
+          "type": "string"
+        },
+        "takes_value": {
+          "type": "boolean"
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "about": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "about"
+      ]
+    },
+    "Command": {
+      "type": "object",
+      "properties": {
+        "about": {
+          "type": "string"
+        },
+        "args": {
+          "description": "arguments for CLI",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/definitions/Arg"
+            }
+          }
+        }
+      },
+      "required": [
+        "about"
+      ]
+    }
+  }
+}
