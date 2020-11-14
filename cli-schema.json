@@ -8,13 +8,25 @@
       "description": "CLI name",
       "type": "string"
     },
-    "version": {
-      "description": "CLI version",
-      "type": "string"
+    "author": {
+      "type": "string",
+      "description": "Sets a string of author(s) that will be displayed to the user when they request the help message"
     },
     "about": {
       "description": "description for CLI",
       "type": "string"
+    },
+    "version": {
+      "description": "CLI version",
+      "type": "string"
+    },
+    "after_help": {
+      "type": "string",
+      "description": "Adds additional help information to be displayed at the end of the auto-generated help"
+    },
+    "before_help": {
+      "type": "string",
+      "description": "Adds additional help information to be displayed prior to the auto-generated help"
     },
     "args": {
       "description": "arguments for CLI",
@@ -76,6 +88,7 @@
         },
         "possible_values": {
           "type": "array",
+          "description": "possible values",
           "items": {
             "type": "string"
           }
@@ -126,10 +139,22 @@
       "type": "object",
       "properties": {
         "about": {
-          "type": "string"
+          "type": "string",
+          "description": "Sets a string describing what the command does"
+        },
+        "after_help": {
+          "type": "string",
+          "description": "Adds additional help information to be displayed at the end of the auto-generated help"
+        },
+        "aliases": {
+          "type": "array",
+          "description": "adds a multiple aliases for command",
+          "items": {
+            "type": "string"
+          }
         },
         "args": {
-          "description": "arguments for CLI",
+          "description": "Adds multiple arguments to the list of valid possibilities.",
           "type": "array",
           "items": {
             "type": "object",
@@ -137,6 +162,14 @@
               "$ref": "#/definitions/Arg"
             }
           }
+        },
+        "author": {
+          "type": "string",
+          "description": "Sets a string of author(s) that will be displayed to the user when they request the help message"
+        },
+        "version": {
+          "type": "string",
+          "description": "Sets a string of the version number to be displayed when displaying the short format version message"
         }
       },
       "required": [
