@@ -43,7 +43,6 @@ pub fn build_app() -> App<'static> {
                 .takes_value(true)
                 .required(true)
                 .value_name("FILE")
-                .about("CLI clap-rs yaml file")
+                .about("CLI clap-rs yaml file"),
         )
 }
-

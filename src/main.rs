@@ -1,12 +1,12 @@
 mod app;
 
 use crate::app::build_app;
-use clap_generate::generate;
-use clap_generate::generators::{Bash, Zsh, Fish, PowerShell};
-use clap::{App};
+use clap::App;
 use clap::ArgMatches;
-use yaml_rust::{YamlLoader, Yaml};
+use clap_generate::generate;
+use clap_generate::generators::{Bash, Fish, PowerShell, Zsh};
 use std::fs;
+use yaml_rust::{Yaml, YamlLoader};
 
 fn main() {
     let app = build_app();
@@ -22,7 +22,9 @@ fn main() {
             println!("😂 Incorrect yaml file!");
         }
     } else {
-        println!("😂 Please use `cli-completion --zsh multipass.yaml` to generate shell completion!");
+        println!(
+            "😂 Please use `cli-completion --zsh multipass.yaml` to generate shell completion!"
+        );
     }
 }
 
