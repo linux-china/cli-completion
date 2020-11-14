@@ -3,10 +3,15 @@ CLI completion
 
 CLI completion for bash, zsh, fish and powershell.
 
+# How to install?
+
+```
+$ cargo install cli-completion
+```
+
 # How to use?
 
 Please refer https://github.com/clap-rs/clap#using-yaml to write YAML file for the cli.
-
 
 ### bash completion
 
