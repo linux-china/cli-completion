@@ -16,6 +16,10 @@ $ cargo install cli-completion
 Please refer https://github.com/clap-rs/clap#using-yaml to write YAML file for the cli.
 Or you can refer [multipass.yaml](https://github.com/linux-china/cli-completion/blob/master/commands/multipass.yaml) as an example.
 
+```
+$ cli-completion --bash commands/multipass.yaml
+```
+
 ### bash completion
 
 ```
