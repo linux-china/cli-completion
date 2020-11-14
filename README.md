@@ -37,7 +37,7 @@ $ autoload -U compinit && compinit
 
 ```
 $ mkdir ~/.oh-my-zsh/custom/plugins/xxx 
-$ cli-completion --bash xxx.yaml >  ~/.oh-my-zsh/custom/plugins/xxx/_xxx 
+$ cli-completion --zsh xxx.yaml >  ~/.oh-my-zsh/custom/plugins/xxx/_xxx 
 ```
 
 Don't forget to enable xxx plugin in ~/.zshrc file！
