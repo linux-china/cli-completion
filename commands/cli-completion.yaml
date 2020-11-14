@@ -1,0 +1,34 @@
+name: cli-completion
+version: "0.1.0"
+about: "CLI completion for bash, zsh, fish and powershell."
+args:
+  - help:
+      short: h
+      long: help
+      takes_value: false
+      about: Display this help
+  - bash:
+      long: bash
+      takes_value: false
+      required: false
+      about: Bash completion
+  - fish:
+      long: fish
+      takes_value: false
+      required: false
+      about: Fish completion
+  - zsh:
+      long: zsh
+      takes_value: false
+      required: false
+      about: Zsh completion
+  - powershell:
+      long: powershell
+      takes_value: false
+      required: false
+      about: Powershell completion
+  - yaml:
+      takes_value: true
+      required: true
+      value_name: FILE
+      about: CLI clap-rs yaml file
