@@ -31,4 +31,5 @@ args:
       takes_value: true
       required: true
       value_name: FILE
+      value_hint: FilePath
       about: CLI clap-rs yaml file
