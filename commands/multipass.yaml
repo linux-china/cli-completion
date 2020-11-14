@@ -1,0 +1,253 @@
+name: multipass
+version: "1.5.0"
+about: "This is a command line utility for multipass, a service that manages Ubuntu instances."
+args:
+  - help:
+      short: h
+      long: help
+      takes_value: false
+      about: Display this help
+  - verbose:
+      short: v
+      long: verbose
+      takes_value: false
+      about: Increase logging verbosity
+subcommands:
+  - delete:
+      about: Delete instances
+      args:
+        - all:
+            short: d
+            long: all
+            takes_value: false
+            required: false
+            about: Delete all instances
+        - purge:
+            short: p
+            long: purge
+            takes_value: false
+            required: false
+            about: Purge instances immediately
+        - name:
+            takes_value: true
+            required: false
+            about: Names of instances to delete
+  - exec:
+      about: Run a command on an instance
+      args:
+        - name:
+            takes_value: true
+            required: false
+            index: 1
+            about: Name of instance to execute the command on
+        - command:
+            allow_hyphen_values: true
+            takes_value: true
+            required: false
+            index: 2
+            about: Command to execute on the instance
+  - find:
+      about: Display available images to create instances from
+      args:
+        - format:
+            long: format
+            takes_value: false
+            required: false
+            about: "Output list in the requested format.Valid formats are: table (default), json, csv and yaml"
+        - string:
+            takes_value: true
+            required: false
+            about: "An optional value to search for in [<remote:>]<string>"
+  - get:
+      about: Get a configuration setting
+      args:
+        - raw:
+            long: raw
+            takes_value: false
+            required: false
+            about: 'Output in raw format. For now, this affects only the representation of empty values (i.e. "" instead of "<empty>").'
+        - key:
+            takes_value: true
+            required: false
+            about: Path to the setting whose configured value should be obtained.
+  - help:
+      about: Display help about a command
+  - info:
+      about: Display information about instances
+      args:
+        - all:
+            long: all
+            takes_value: false
+            required: false
+            about: Display info for all instances
+        - format:
+            long: format
+            takes_value: true
+            required: false
+            about: "Output info in the requested format. Valid formats are: table (default), json, csv and yaml"
+        - name:
+            takes_value: true
+            required: false
+            about: Names of instances to display information about
+  - launch:
+      about: Create and start an Ubuntu instance
+      args:
+        - cpus:
+            short: c
+            long: cpus
+            takes_value: true
+            required: false
+            about: "Number of CPUs to allocate. Minimum: 1, default: 1."
+        - mem:
+            short: m
+            long: mem
+            takes_value: true
+            required: false
+            about: "Amount of memory to allocate. Positive integers, in bytes, or with K, M, G suffix. Minimum: 128M, default: 1G."
+        - disk:
+            short: d
+            long: disk
+            takes_value: true
+            required: false
+            about: "Disk space to allocate. Positive integers, in bytes, or with K, M, G suffix. Minimum: 512M, default: 5G."
+        - name:
+            short: n
+            long: name
+            takes_value: true
+            required: true
+            about: "Name for the instance. If it is primary (the configured primary instance name), the user home directory is mounted inside the newly launched instance, in Home."
+        - image:
+            takes_value: true
+            required: false
+            about: "Optional image to launch. If omitted, then the default Ubuntu LTS will be used."
+  - list:
+      about: List all available instances
+      args:
+        - format:
+            long: format
+            takes_value: true
+            required: false
+            about: "Output list in the requested format. Valid formats are: table (default), json, csv and yaml"
+  - mount:
+      about: Mount a local directory in the instance
+      args:
+        - source:
+            takes_value: true
+            required: true
+            index: 1
+            about: Path of the local directory to mount
+        - target:
+            takes_value: true
+            required: true
+            index: 2
+            about: "Target mount points, in <name>[:<path>] format, where <name> is an instance name, and optional <path> is the mount point. If omitted, the mount point will be the same as the source absolute path"
+  - purge:
+      about: Purge all deleted instances permanently
+  - recover:
+      about: Recover deleted instances
+      args:
+        - all:
+            long: all
+            takes_value: false
+            required: false
+            about: Recover all deleted instances
+        - name:
+            takes_value: true
+            required: false
+            about: Names of instances to recover
+  - restart:
+      about: Restart instances
+      args:
+        - all:
+            long: all
+            takes_value: false
+            required: false
+            about: Recover all deleted instances
+        - name:
+            takes_value: true
+            required: false
+            about: "Names of instances to restart. If omitted, and without the --all option, primary will be assumed."
+  - set:
+      about: Set a configuration setting
+      args:
+        - keyval:
+            takes_value: true
+            required: true
+            about: "A key-value pair. The key specifies a path to the setting to configure. The value is its intended value."
+  - shell:
+      about: Open a shell on a running instance
+      args:
+        - name:
+            takes_value: true
+            required: false
+            about: "Name of the instance to open a shell on. If omitted, primary (the configured primary instance name) will be assumed. If the instance is not running, an attempt is made to start it (see `start` for more info)."
+  - start:
+      about: Start instances
+      args:
+        - all:
+            long: all
+            takes_value: false
+            required: false
+            about: Start all instances
+        - name:
+            takes_value: true
+            required: false
+            about: "Names of instances to start. If omitted, and without the --all option, primary (the configured primary instance name) will be assumed. If primary does not exist but is included in a successful start command (either implicitly or explicitly), it is launched automatically (see `launch` for more info)."
+  - stop:
+      about: Stop running instances
+      args:
+        - all:
+            long: all
+            takes_value: false
+            required: false
+            about: Stop all instances
+        - time:
+            short: t
+            long: time
+            takes_value: true
+            required: false
+            about: "Time from now, in minutes, to delay shutdown of the instance"
+        - cancel:
+            short: c
+            long: cancel
+            takes_value: false
+            required: false
+            about: "Cancel a pending delayed shutdown"
+        - name:
+            takes_value: true
+            required: false
+            about: "Names of instances to stop. If omitted, and without the --all option, primary will be assumed."
+  - suspend:
+      about: Suspend running instances
+      args:
+        - all:
+            long: all
+            takes_value: false
+            required: false
+            about: Suspend all instances
+        - name:
+            takes_value: true
+            required: false
+            about: "Names of instances to suspend. If omitted, and without the --all option, primary will be assumed."
+  - transfer:
+      about: Transfer files between the host and instances
+      args:
+        - source:
+            takes_value: true
+            required: true
+            index: 1
+            about: "One or more paths to transfer, prefixed with <name:> for paths inside the instance, or - for stdin"
+        - destination:
+            takes_value: true
+            required: true
+            index: 2
+            about: "The destination path, prefixed with <name:> for a path inside the instance, or - for stdout"
+  - umount:
+      about: Unmount a directory from an instance
+      args:
+        - mount:
+            takes_value: true
+            required: true
+            about: "Mount points, in <name>[:<path>] format, where <name> are instance names, and optional <path> are mount points. If omitted, all mounts will be removed from the named instances."
+  - version:
+      about: Show version details
