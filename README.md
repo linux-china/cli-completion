@@ -1,5 +1,6 @@
 CLI completion
 ==============
+[![cli-completion Crate](https://img.shields.io/crates/v/cli-completion)](https://crates.io/crates/cli-completion)
 
 CLI completion for bash, zsh, fish and powershell.
 
