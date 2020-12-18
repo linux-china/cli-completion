@@ -59,3 +59,4 @@ $ cli-completion --powershell xxx.yaml > xxx-completion.ps
 
 * clap-rs: https://github.com/clap-rs/clap
 * cli-completion crate: https://crates.io/crates/cli-completion
+* Command Line Interface Guidelines: https://clig.dev/
