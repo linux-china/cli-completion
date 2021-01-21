@@ -47,6 +47,7 @@ args:
       long: interactionModel
       required: false
       takes_value: true
+      possible_values: [ "REQUEST_RESPONSE", "REQUEST_STREAM", "REQUEST_CHANNEL","FIRE_AND_FORGET" ]
       about: "InteractionModel(default: REQUEST_RESPONSE)"
   - limitRate:
       long: limitRate
