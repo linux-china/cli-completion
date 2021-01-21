@@ -1,0 +1,172 @@
+name: rsc
+binary_name: "rsc"
+version: "0.7.1"
+before_help: |
+  usage: rsc Uri [Options]
+  Non-option arguments: [String: Uri]
+
+args:
+  - authBearer:
+      aliases: [ "ab" ]
+      long: authBearer
+      takes_value: false
+      about: "Enable Authentication Metadata Extension (Bearer)"
+  - channel:
+      long: channel
+      required: false
+      about: "Shortcut of --im REQUEST_CHANNEL"
+  - data:
+      short: d
+      long: data
+      takes_value: true
+      about: "Data. Use '-' to read data from standard input"
+  - dataMimeType:
+      aliases: [ "dmt" ]
+      long: dataMimeType
+      takes_value: true
+      about: "MimeType for data (default: application/json)"
+  - debug:
+      long: debug
+      takes_value: false
+      required: false
+      about: Enable FrameLogger
+  - delayElements:
+      long: delayElements
+      takes_value: true
+      about: "Enable delayElements(delay) in milli seconds"
+  - fnf:
+      long: fnf
+      required: false
+      about: "Shortcut of --im FIRE_AND_FORGET"
+  - help:
+      long: help
+      required: false
+      about: "Print help"
+  - interactionModel:
+      aliases: [ "im" ]
+      long: interactionModel
+      required: false
+      takes_value: true
+      about: "InteractionModel(default: REQUEST_RESPONSE)"
+  - limitRate:
+      long: limitRate
+      required: false
+      takes_value: true
+      about: "Enable limitRate(rate)"
+  - log:
+      long: log
+      required: false
+      about: "Enable log()"
+  - metadata:
+      short: m
+      long: metadata
+      required: false
+      takes_value: true
+      about: "Metadata (default: )"
+  - metadataMimeType:
+      aliases: [ "mmt" ]
+      long: metadataMimeType
+      required: false
+      takes_value: true
+      about: "MimeType for metadata (default: application/json)"
+  - printB3:
+      long: printB3
+      required: false
+      about: "Print B3 propagation info. Ignored unless --trace is set"
+  - quiet:
+      short: q
+      long: quiet
+      required: false
+      about: "Disable the output on next"
+  - route:
+      short: r
+      long: route
+      required: false
+      takes_value: true
+      about: "Enable Routing Metadata Extension"
+  - request:
+      long: request
+      required: false
+      about: "Shortcut of --im REQUEST_RESPONSE"
+  - resume:
+      long: resume
+      required: false
+      takes_value: true
+      about: "Enable resume. Resume session duration"
+  - retry:
+      long: retry
+      required: false
+      takes_value: true
+      about: "Enable retry. Retry every 1 second with the given max attempts"
+  - setupData:
+      aliases: [ "sd" ]
+      long: setupData
+      required: false
+      takes_value: true
+      about: "Data for Setup payload"
+  - setupMetadata:
+      aliases: [ "sm" ]
+      long: setupMetadata
+      required: false
+      takes_value: true
+      about: "Metadata for Setup payload"
+  - setupMetadataMimeType:
+      aliases: [ "smmt" ]
+      long: setupMetadataMimeType
+      required: false
+      takes_value: true
+      about: "Metadata MimeType for Setup payload (default: application/json)"
+  - showSystemProperties:
+      long: showSystemProperties
+      required: false
+      about: "Show SystemProperties for troubleshoot"
+  - stacktrace:
+      long: stacktrace
+      required: false
+      about: "Show Stacktrace when an exception happens"
+  - stream:
+      long: stream
+      required: false
+      about: "Shortcut of --im REQUEST_STREAM"
+  - take:
+      long: take
+      required: false
+      takes_value: true
+      about: "Enable take(n)"
+  - trace:
+      long: trace
+      required: false
+      takes_value: true
+      about: "Enable Tracing (Zipkin) Metadata Extension"
+  - authSimple:
+      short: u
+      aliases: [ "as" ]
+      long: authSimple
+      required: false
+      takes_value: true
+      about: "Enable Authentication Metadata Extension (Simple). The format must be 'username:password'"
+  - version:
+      short: v
+      long: version
+      required: false
+      about: "Print version"
+  - wiretap:
+      short: w
+      long: wiretap
+      required: false
+      about: "Enable wiretap"
+  - wsHeader:
+      aliases: [ "wsh" ]
+      long: wsHeader
+      required: false
+      takes_value: true
+      about: "Header for web socket connection"
+  - zipkinUrl:
+      long: zipkinUrl
+      required: false
+      takes_value: true
+      about: "Zipkin URL to send a span (ex. http://localhost:9411). Ignored unless -- trace is set."
+  - url:
+      required: true
+      takes_value: true
+      about: "RSocket connection URL"
