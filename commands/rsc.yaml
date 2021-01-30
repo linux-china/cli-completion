@@ -167,7 +167,10 @@ args:
       required: false
       takes_value: true
       about: "Zipkin URL to send a span (ex. http://localhost:9411). Ignored unless -- trace is set."
+      value_hint: Url
   - url:
       required: true
       takes_value: true
       about: "RSocket connection URL"
+      value_hint: Url
+
