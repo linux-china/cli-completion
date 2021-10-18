@@ -28,13 +28,13 @@ pub fn generate_shell_completion(args: &ArgMatches, yaml: &Yaml) {
     let app = App::from(yaml);
     let command = app.get_name();
     if args.is_present("zsh") {
-        generate::<Zsh, _>(&mut app.clone(), command, &mut std::io::stdout());
+        generate(Zsh, &mut app.clone(), command, &mut std::io::stdout());
     } else if args.is_present("bash") {
-        generate::<Bash, _>(&mut app.clone(), command, &mut std::io::stdout());
+        generate(Bash, &mut app.clone(), command, &mut std::io::stdout());
     } else if args.is_present("fish") {
-        generate::<Fish, _>(&mut app.clone(), command, &mut std::io::stdout());
+        generate(Fish, &mut app.clone(), command, &mut std::io::stdout());
     } else if args.is_present("powershell") {
-        generate::<PowerShell, _>(&mut app.clone(), command, &mut std::io::stdout());
+        generate(PowerShell, &mut app.clone(), command, &mut std::io::stdout());
     } else {
         println!("😂 the shell not support!");
     }
